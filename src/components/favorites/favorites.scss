@@ -1,0 +1,25 @@
+.favorites {
+  &__container {
+    padding: 50px 0;
+    border-bottom: 2px solid #737373;
+
+    &-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 35px;
+      color: #737373;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &__text {
+        cursor: pointer;
+      }
+      &__icon {
+        cursor: pointer;
+      }
+    }
+  }
+}
