@@ -31,6 +31,6 @@ export const heros = [
   { ids: ["731","751","761"], name: "dust-sand.jpg" },
   { ids: ["762"], name: "ash.jpg" },
   { ids: ["781"], name: "tornado.jpg" },
-  { ids: ["800"], name: "clear.jpg" },
+  { ids: ["800"], name: "sunny.jpg" },
   { ids: ["771","801","802","803","804"], name: "clouds.jpg" },
 ]
