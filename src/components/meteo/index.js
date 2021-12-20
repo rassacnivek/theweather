@@ -5,6 +5,7 @@ import { addFavorite, deleteFromFavorites } from '../../actions/favorites'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart as faRegularHeart } from '@fortawesome/free-regular-svg-icons'
 import { faHeart as faSolidHeart } from '@fortawesome/free-solid-svg-icons'
+import { motion } from 'framer-motion'
 import './meteo.scss'
 
 const Meteo = () => {
@@ -26,13 +27,13 @@ const Meteo = () => {
             <img className="meteo__container-details__icon" src={`http://openweathermap.org/img/wn/${city.weather[0].icon}@2x.png`} alt={city.weather[0].description} />
             <div className="meteo__container-details__text">{city.weather[0].main}</div>
           </div>
-          <div className="meteo__container-favorite">
+          <motion.div className="meteo__container-favorite" whileHover={{ scale: 1.2 }} whileTap={{scale: 0.8}}>
             {isFav > -1 ? (
               <FontAwesomeIcon icon={faSolidHeart} className="meteo__container-favorite__button" onClick={() => dispatch(deleteFromFavorites(city.id))} />
             ) : (
               <FontAwesomeIcon icon={faRegularHeart} className="meteo__container-favorite__button" onClick={() => dispatch(addFavorite(city))} />
             )}
-          </div>
+          </motion.div>
         </div>
       )
       }

@@ -1,11 +1,12 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 import './header.scss'
 
 const Header = () => {
   return (
-    <div className="brand">
+    <motion.div className="brand" whileHover={{ scale: 1.2 }} >
       the.weather
-    </div>
+    </motion.div>
   )
 }
 

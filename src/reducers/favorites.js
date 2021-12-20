@@ -12,7 +12,6 @@ const favoritesReducer = (state = initialState, action) => {
         id: action.payload.id,
         name: action.payload.name
       })
-      console.log(favorites);
       localStorage.setItem('favorites', JSON.stringify(favorites))
       return {
         ...state,
@@ -22,8 +21,6 @@ const favoritesReducer = (state = initialState, action) => {
     case DELETE_FAVORITE:
       favorites = (JSON.parse(state.favorites)).filter(favorite => favorite.id !== action.payload.id)
       localStorage.setItem('favorites', JSON.stringify(favorites))
-      console.log('delete')
-      console.log({ ...state, favorites })
       return {
         ...state,
         favorites: JSON.stringify(favorites)

@@ -6,7 +6,9 @@ import './search.scss'
 const Search = () => {
   return (
     <>
-      <input type="text" name="city" id="city" className="search__input" placeholder="Another location"/>
+      <span className="search__container">
+        <input type="text" name="city" id="city" className="search__container-input" placeholder="Another location" />
+      </span>
       <FontAwesomeIcon icon={faSearch} className="search__button" />
     </>
   )

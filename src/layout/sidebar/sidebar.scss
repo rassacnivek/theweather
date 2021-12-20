@@ -6,8 +6,27 @@
   min-height: 600px;
   width: calc(30vw - 72px);
   height: calc(100vh - 84px);
-  backdrop-filter: blur(20px);
   padding: 42px 36px;
+  backdrop-filter: blur(20px);
+
+  &__chevron {
+    position: absolute;
+    left: -4vh;
+    top: 46vh;
+    width: 8vh;
+    height: 8vh;
+    backdrop-filter: blur(20px);
+    border-radius: 4vh 4vh;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-image {
+      width: 2vh;
+      color: #ffffff;
+    }
+  }
 
   &__scroll {
     overflow-y: scroll;
