@@ -1,7 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { months, days } from '../../data/calendar'
-import { getCurrentDate } from '../../actions/time'
 import { addFavorite, deleteFromFavorites } from '../../actions/favorites'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart as faRegularHeart } from '@fortawesome/free-regular-svg-icons'
@@ -10,14 +9,10 @@ import './meteo.scss'
 
 const Meteo = () => {
   const dispatch = useDispatch()
-  setTimeout(() => {
-    dispatch(getCurrentDate())
-  }, 1000)
-
   const city = useSelector(state => state.location.currentCity)
-  const now = useSelector(state => state.time.currentDate)
-  const favorites = useSelector(state => state.favorites.favorites)
+  const favorites = JSON.parse(useSelector(state => state.favorites.favorites))
   const isFav = favorites.findIndex(fav => fav.id === city.id)
+  const now = new Date()
   return (
     <>
       {city && (

@@ -7,7 +7,7 @@ import './favorites.scss'
 
 const Favorites = () => {
   const dispatch = useDispatch()
-  const favorites = useSelector(state => state.favorites.favorites)
+  const favorites = JSON.parse(useSelector(state => state.favorites.favorites))
   return (
     <>
       {favorites.length > 0 && (
