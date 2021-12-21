@@ -1,24 +1,19 @@
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { deleteFromFavorites } from '../../actions/favorites'
+import { useSelector } from 'react-redux'
+import { motion } from 'framer-motion'
 import './favorites.scss'
+import FavoriteItem from './favoriteItem'
 
 const Favorites = () => {
-  const dispatch = useDispatch()
   const favorites = JSON.parse(useSelector(state => state.favorites.favorites))
   return (
     <>
       {favorites.length > 0 && (
-        <div className="favorites__container">
+        <motion.div className="favorites__container" >
           {favorites.map(city =>
-            <div className="favorites__container-item" key={city.id}>
-              <span className="favorites__container-item__text">{city.name}</span>
-              <FontAwesomeIcon icon={faTimes} className="favorites__container-item__icon" onClick={() => dispatch(deleteFromFavorites(city.id))} />
-            </div>
+            <FavoriteItem key={city.id} city={city} />
           )}
-        </div>
+        </motion.div>
       )}
     </>
   )

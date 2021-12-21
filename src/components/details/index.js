@@ -1,10 +1,11 @@
-import React, { Fragment, useState } from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
+import { motion } from 'framer-motion'
 import './details.scss'
+import { TextHoverVariant } from '../../utils/variants/textHover'
 
 const Details = () => {
   const city = useSelector(state => state.location.currentCity)
-  console.log(city);
   const [details, setDetails] = useState([])
   if (city && details.length === 0) {
     setDetails([
@@ -17,14 +18,14 @@ const Details = () => {
     <div className="details__container">
       <div className="details__container-title">Weather Details</div>
       {details.map(detail =>
-        <div className="details__container-list" key={detail.label.toLowerCase()}>
+        <motion.div className="details__container-list" whileHover={TextHoverVariant} key={detail.label.toLowerCase()}>
           <div className="details__container-list__label">
             {detail.label}
           </div>
           <div className="details__container-list__value">
             {detail.value.all ?? detail.value} {detail.unit}
           </div>
-        </div>
+        </motion.div>
       )}
     </div>
   )

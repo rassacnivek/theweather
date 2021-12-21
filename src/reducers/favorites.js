@@ -10,7 +10,8 @@ const favoritesReducer = (state = initialState, action) => {
       favorites = JSON.parse(state.favorites)
       favorites.push({
         id: action.payload.id,
-        name: action.payload.name
+        name: action.payload.name,
+        country: action.payload.country
       })
       localStorage.setItem('favorites', JSON.stringify(favorites))
       return {

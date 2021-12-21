@@ -8,7 +8,6 @@ import { motion } from 'framer-motion'
 import './sidebar.scss'
 
 const Sidebar = () => {
-
   const [isOpen, setIsOpen] = useState(true)
 
   const SidebarVariants = {
@@ -20,7 +19,7 @@ const Sidebar = () => {
     open: { transform: "rotate(0deg)" },
     closed: { transform: "rotate(180deg)" }
   }
-  console.log(isOpen)
+
   return (
     <motion.div className="sidebar" animate={isOpen ? "open" : "closed"} variants={SidebarVariants}>
       <motion.span className="sidebar__chevron" onClick={() => setIsOpen(!isOpen)} variants={ChevronVariants}>

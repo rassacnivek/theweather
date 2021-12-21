@@ -5,7 +5,8 @@ export const addFavorite = (city) => ({
   type: ADD_FAVORITE,
   payload: {
     id: city.id,
-    name: city.name
+    name: city.name,
+    country: city.sys.country
   }
 })
 

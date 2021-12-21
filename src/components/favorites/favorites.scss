@@ -6,7 +6,6 @@
     &-item {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       margin-bottom: 35px;
       color: #737373;
 
@@ -16,9 +15,7 @@
 
       &__text {
         cursor: pointer;
-      }
-      &__icon {
-        cursor: pointer;
+        margin-left: 10px;
       }
     }
   }
