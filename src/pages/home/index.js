@@ -1,33 +1,37 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import axios from 'axios'
-import { setLocation } from '../../actions/location'
-import Meteo from '../../components/meteo'
-import './home.scss'
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import { setLocation } from "../../actions/location";
+import Meteo from "../../components/meteo";
+import "./home.scss";
 
 const Home = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(position => {
-      axios.get(`${process.env.REACT_APP_API_ENDPOINT}&lat=${position.coords.latitude}&lon=${position.coords.longitude}`)
+    navigator.geolocation.getCurrentPosition((position) => {
+      axios
+        .get(
+          /* global process */
+          `${process.env.REACT_APP_API_ENDPOINT}&lat=${position.coords.latitude}&lon=${position.coords.longitude}`
+        )
         .then((res) => {
-          dispatch(setLocation(res.data))
+          dispatch(setLocation(res.data));
         })
-        .catch(err => {
-          console.log(err)
-        })
-    })
-  }, [dispatch])
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+  }, [dispatch]);
 
-  const city = useSelector(state => state.location.currentCity)
+  const city = useSelector((state) => state.location.currentCity);
 
-  const [bgImg, setBgImg] = useState(null)
+  const [bgImg, setBgImg] = useState(null);
 
   if (city) {
     import(`../../assets/${city.bgImg}`).then((module) => {
-      setBgImg(module.default)
-    })
+      setBgImg(module.default);
+    });
   }
 
   return (
@@ -39,7 +43,7 @@ const Home = () => {
         </>
       )}
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

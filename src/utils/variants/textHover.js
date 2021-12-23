@@ -1,3 +1,3 @@
 export const TextHoverVariant = {
-  color: "#ffffff"
-}
+  color: "#ffffff",
+};

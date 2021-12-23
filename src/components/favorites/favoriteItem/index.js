@@ -5,14 +5,14 @@ import { setLocation } from "../../../actions/location";
 import { useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 import { TextHoverVariant } from "../../../utils/variants/textHover";
+import PropTypes from "prop-types";
 import axios from "axios";
 
 const FavoriteItem = (props) => {
-  console.log(props.city);
   const dispatch = useDispatch();
   const setCurrentLocation = (id) => {
-    console.log("click on favorite item triggered !");
     axios
+      /* global process */
       .get(`${process.env.REACT_APP_API_ENDPOINT}&id=${id}`)
       .then((res) => {
         dispatch(setLocation(res.data));
@@ -37,6 +37,10 @@ const FavoriteItem = (props) => {
       </motion.span>
     </div>
   );
+};
+
+FavoriteItem.propTypes = {
+  city: PropTypes.object,
 };
 
 export default FavoriteItem;

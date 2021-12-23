@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setLocation } from "../../actions/location";
 import axios from "axios";
 import { TextHoverVariant } from "../../utils/variants/textHover";
+import { SearchVariants } from "../../utils/variants/search";
 
 const Search = () => {
   const dispatch = useDispatch();
@@ -16,10 +17,6 @@ const Search = () => {
     searchCities: [],
     isVisible: false,
   });
-  const SearchVariants = {
-    visible: { y: 0, opacity: 1 },
-    hidden: { y: "-100%", opacity: 0 },
-  };
 
   const handleSearch = (favorites, search) => {
     if (search !== "") {
@@ -65,15 +62,15 @@ const Search = () => {
   };
 
   const setCurrentLocation = (lat, lng) => {
-    console.log("click on search item triggered !")
-    // axios
-    //   .get(`${process.env.REACT_APP_API_ENDPOINT}&lat=${lat}&lon=${lng}`)
-    //   .then((res) => {
-    //     dispatch(setLocation(res.data));
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    axios
+      /* global process */
+      .get(`${process.env.REACT_APP_API_ENDPOINT}&lat=${lat}&lon=${lng}`)
+      .then((res) => {
+        dispatch(setLocation(res.data));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const favorites = JSON.parse(

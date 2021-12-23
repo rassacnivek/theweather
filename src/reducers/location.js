@@ -7,8 +7,7 @@ const initialState = {
 
 const locationReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_CURRENT_LOCATION:
-      console.log("action", action);
+    case SET_CURRENT_LOCATION: {
       const h = heros.filter((hero) =>
         hero.ids.includes(action.payload.weather[0].id.toString())
       );
@@ -17,6 +16,7 @@ const locationReducer = (state = initialState, action) => {
         ...state,
         currentCity: action.payload,
       };
+    }
     default:
       return state;
   }
