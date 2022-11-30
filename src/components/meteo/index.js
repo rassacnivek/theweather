@@ -25,7 +25,7 @@ const Meteo = () => {
             <div className="meteo__container-infos__time">
               {now.getHours()}:{now.getMinutes()} — {days[now.getDay()]},{" "}
               {now.getDate()} {months[now.getMonth()]} &apos;
-              {now.getFullYear().toString().substr(2, 2)}
+              {now.getFullYear().toString().substring(2)}
             </div>
           </div>
           <div className="meteo__container-details">
