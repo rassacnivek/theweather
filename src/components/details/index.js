@@ -9,9 +9,9 @@ const Details = () => {
   const [details, setDetails] = useState([]);
   if (city && details.length === 0) {
     setDetails([
-      { label: "Cloudy", value: city.clouds, unit: "%" },
+      { label: "Cloudy", value: city.clouds.all, unit: "%" },
       { label: "Humidity", value: city.main.humidity, unit: "%" },
-      { label: "Wind", value: city.clouds, unit: "km/h" },
+      { label: "Wind", value: city.wind.speed, unit: "km/h" },
     ]);
   }
   return (
@@ -25,7 +25,7 @@ const Details = () => {
         >
           <div className="details__container-list__label">{detail.label}</div>
           <div className="details__container-list__value">
-            {detail.value.all ?? detail.value} {detail.unit}
+            {detail.value} {detail.unit}
           </div>
         </motion.div>
       ))}
