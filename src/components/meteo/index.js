@@ -11,14 +11,15 @@ const Meteo = () => {
   const favorites = JSON.parse(
     useSelector((state) => state.favorites.favorites)
   );
-  const isFav = favorites.findIndex((fav) => fav.id === city.id);
+  const isFav = favorites.find((fav) => fav.id === city.id);
   const now = new Date();
   return (
     <>
       {city && (
         <div className="meteo__container">
           <div className="meteo__container-temperature">
-            {parseInt(city.main.temp)}°
+            {parseInt(city.main.temp)}
+            <span>°</span>
           </div>
           <div className="meteo__container-infos">
             <div className="meteo__container-infos__city">{city.name}</div>
@@ -39,7 +40,7 @@ const Meteo = () => {
             </div>
           </div>
           <FavoriteIcon
-            isFav={isFav}
+            isFav={isFav || false}
             addAction={() => dispatch(addFavorite(city))}
             deleteAction={() => dispatch(deleteFromFavorites(city.id))}
           />

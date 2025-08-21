@@ -16,6 +16,14 @@
       &__text {
         cursor: pointer;
         margin-left: 10px;
+
+        &.no-icon {
+          margin-left: 0;
+        }
+
+        &.no-link {
+          cursor: auto;
+        }
       }
     }
   }

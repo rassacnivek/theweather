@@ -21,6 +21,14 @@
   &-infos {
     &__city {
       font-size: 64px;
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text;
+      user-select: text;
+
+      &::selection {
+        background-color: #424242;
+      }
     }
 
     &__time {

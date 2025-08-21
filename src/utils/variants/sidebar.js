@@ -1,6 +1,7 @@
 export const SidebarVariants = {
-  open: { x: 0 },
-  closed: { x: "99%" },
+  open: { x: 0, opacity: 1 },
+  closed: { x: "99%", opacity: 1 },
+  hidden: { x: "99%", opacity: 0 },
 };
 
 export const ChevronVariants = {

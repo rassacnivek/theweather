@@ -63,7 +63,6 @@ const Search = () => {
 
   const setCurrentLocation = (lat, lng) => {
     axios
-      /* global process */
       .get(`${process.env.REACT_APP_API_ENDPOINT}&lat=${lat}&lon=${lng}`)
       .then((res) => {
         dispatch(setLocation(res.data));

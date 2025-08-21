@@ -12,7 +12,6 @@ const FavoriteItem = (props) => {
   const dispatch = useDispatch();
   const setCurrentLocation = (id) => {
     axios
-      /* global process */
       .get(`${process.env.REACT_APP_API_ENDPOINT}&id=${id}`)
       .then((res) => {
         dispatch(setLocation(res.data));
@@ -22,7 +21,10 @@ const FavoriteItem = (props) => {
       });
   };
   return (
-    <div className="favorites__container-item">
+    <motion.div
+      className="favorites__container-item"
+      whileHover={TextHoverVariant}
+    >
       <FavoriteIcon
         isFav={true}
         addAction={() => dispatch(addFavorite(props.city))}
@@ -31,11 +33,10 @@ const FavoriteItem = (props) => {
       <motion.span
         className="favorites__container-item__text"
         onClick={() => setCurrentLocation(props.city.id)}
-        whileHover={TextHoverVariant}
       >
         {props.city.name}
       </motion.span>
-    </div>
+    </motion.div>
   );
 };
 

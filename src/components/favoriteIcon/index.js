@@ -13,7 +13,7 @@ const FavoriteIcon = (props) => {
       whileHover={{ scale: 1.2 }}
       whileTap={{ scale: 0.8 }}
     >
-      {props.isFav > -1 ? (
+      {props.isFav ? (
         <FontAwesomeIcon
           icon={faSolidHeart}
           className="favorite-button"
@@ -31,9 +31,9 @@ const FavoriteIcon = (props) => {
 };
 
 FavoriteIcon.propTypes = {
-  isFav: PropTypes.boolean,
-  addAction: PropTypes.function,
-  deleteAction: PropTypes.function,
+  isFav: PropTypes.bool,
+  addAction: PropTypes.func,
+  deleteAction: PropTypes.func,
 };
 
 export default FavoriteIcon;
